@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    background: rgb(56,71,98);
+    min-height: 1000px;
+}
+
+#scroll{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+}
+
+.scroll-down{
+    z-index: 2;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mouse{
+    width: 2rem;
+    height: 4rem;
+    border: 2px solid #fff;
+    border-radius: 44%;
+    margin-bottom: 0.4rem;
+    display: flex;
+}
+
+.mouse span{
+    display: block;
+    width: 0.8rem;
+    height: 0.8rem;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: auto;
+    animation: mouse-wheel 0.8s linear infinite;
+}
+
+.arrow{
+    animation: arrow 0.8s linear infinite;
+}
+
+.arrow span{
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid transparent;
+    border-right-color: #fff;
+    border-bottom-color: #fff;
+    transform: rotate(45deg);
+    margin: auto;
+    animation: down-arrow 0.8s alternate infinite;
+}
+
+#container::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px ;
+    background: linear-gradient(to top,rgb(56,71,98), transparent);
+    z-index: 10;
+}
+
+#container::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(56,71,98);
+    z-index: 10;
+    mix-blend-mode: color;
+}
+
+#container{
+    position: relative;
+    width: 100%;
+    height: 140vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#container img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#moon{
+    object-position: 80%;
+}
+
+#car{
+    z-index: 4;
+    object-position: 50% 100%;
+}
+
+#mountain{
+    z-index: 3;
+    transform-origin: bottom;
+}
+
+#drive{
+    position: relative;
+    color: #fff;
+    font-size: 9rem;
+    z-index: 2;
+    white-space: nowrap;
+}
+
+#content{
+    color: #fff;
+    height: 100vh;
+}
+
+#content h2{
+    font-size: 30px;
+    padding: 25px;
+    margin: 10px;
+    font-family: inherit;
+}
+#content p{
+    font-size: 18px;
+    padding: 25px;
+    margin: 15px 0px;
+    font-family: inherit;
+
+}
+
+/* Animation For Mouse */
+
+@keyframes mouse-wheel{
+    0%{
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(1rem);
+    }
+}
+
+@keyframes arrow{
+    0%{
+        transform: translateY(-0.5rem);
+    }
+    100%{
+        transform: translateY(0.5rem);
+        
+    }
+}
+
+@keyframes down-arrow{
+    0%{
+        opacity: 0;
+    }
+
+    25%{
+        opacity: 0.25;
+    }
+
+    50%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 1;
+        
+    }
+}
+
+/* Responsive */
+
+@media(max-width: 830px){
+
+    #drive{
+            font-size: 7rem;
+        }
+
+        #content h2{
+            font-size: 25px;
+            padding: 20px;
+            margin: 5px;
+            font-family: inherit;
+        }
+        
+        #content p{
+            font-size: 16px;
+            padding: 20px;
+            margin: 10px 0px;
+            font-family: inherit;
+        
+        }
+}
+
+@media(max-width: 595px){
+
+    #moon{
+        object-position: 90%;
+    }
+
+    #drive{
+        font-size: 5rem;
+    }
+}
+
+@media(max-width: 595px){
+
+    #drive{
+        font-size: 3rem;
+    }
+}
